@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact – Moldova în imagini</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><div class="bara">
+<span class="logo">Moldova în imagini</span>
+<nav aria-label="Navigare principală">
+<a href="index.html">Acasă</a>
+<a href="galerie.html">Galerie</a>
+<a href="despre.html">Despre</a>
+<a href="contact.html" aria-current="page">Contact</a>
+</nav></div></header>
+<main>
+<h1>Contact</h1>
+<p>Scrie-ne un mesaj. Câmpurile marcate cu * sunt obligatorii.</p>
+
+<form id="formular" class="contact" novalidate>
+<label for="nume">Nume *</label>
+<input type="text" id="nume" name="nume" autocomplete="name" required>
+
+<label for="email">Adresa de email *</label>
+<input type="email" id="email" name="email" autocomplete="email" required>
+
+<label for="subiect">Subiect</label>
+<select id="subiect" name="subiect">
+<option>Întrebare</option>
+<option>Sugestie</option>
+<option>Altceva</option>
+</select>
+
+<label for="mesaj">Mesaj *</label>
+<textarea id="mesaj" name="mesaj" rows="6" required></textarea>
+
+<button type="submit">Trimite mesajul</button>
+<p id="stare" role="status" aria-live="polite"></p>
+</form>
+
+<ul class="linkuri">
+<li><a href="index.html">Înapoi la pagina principală</a></li>
+</ul>
+</main>
+<footer><p>Sarcina 9 · Publicarea site-ului web. Fișierele multimedia sunt în folderele <code>images/</code> și <code>audio/</code>.</p></footer>
+
+<script>
+// Schimbă adresa de mai jos cu emailul tău.
+var ADRESA_DESTINATIE = "adresa.ta@example.com";
+
+var form = document.getElementById("formular");
+var stare = document.getElementById("stare");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  var nume = form.nume.value.trim();
+  var email = form.email.value.trim();
+  var mesaj = form.mesaj.value.trim();
+  var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!nume || !emailValid || !mesaj) {
+    stare.className = "eroare";
+    stare.textContent = "Completează numele, un email valid și mesajul.";
+    return;
+  }
+
+  var corp = "Nume: " + nume + "\nEmail: " + email + "\n\n" + mesaj;
+  var legatura = "mailto:" + ADRESA_DESTINATIE +
+    "?subject=" + encodeURIComponent(form.subiect.value) +
+    "&body=" + encodeURIComponent(corp);
+
+  stare.className = "ok";
+  stare.textContent = "Mulțumim, " + nume + "! Se deschide programul tău de email cu mesajul pregătit.";
+  window.location.href = legatura;
+  form.reset();
+});
+</script>
+</body>
+</html>
