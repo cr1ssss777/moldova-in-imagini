@@ -1,0 +1,35 @@
+:root{--albastru:#1d3a7a;--galben:#f2c230;--rosu:#a3281f;--hartie:#fbf7ee;--text:#1c2233}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,"Times New Roman",serif;line-height:1.7;color:var(--text);background:var(--hartie)}
+header{background:var(--albastru);color:#fff;border-bottom:8px solid var(--galben)}
+.bara{max-width:960px;margin:auto;padding:1rem 1.25rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+.logo{font-size:1.4rem;font-weight:bold;letter-spacing:.02em}
+nav a{color:#fff;margin-left:1.25rem;text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current="page"]{border-color:var(--galben)}
+a:focus-visible,audio:focus-visible{outline:3px solid var(--galben);outline-offset:3px}
+main{max-width:960px;margin:auto;padding:2rem 1.25rem 3rem}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin:.2em 0 .4em;color:var(--albastru)}
+h2{color:var(--rosu);margin-top:2.2rem}
+p{max-width:68ch}
+a{color:var(--albastru)}
+figure{margin:1.5rem 0}
+figure img{width:100%;height:auto;display:block;border:6px solid #fff;box-shadow:0 0 0 1px #d8cfb8}
+figcaption{font-size:.9rem;color:#5a5f70;margin-top:.5rem}
+.hero img{max-height:420px;object-fit:cover}
+.galerie{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.audio-box{background:#fff;border-left:8px solid var(--rosu);padding:1rem 1.25rem;margin:1.5rem 0}
+audio{width:100%;margin-top:.5rem}
+.linkuri li{margin:.4rem 0}
+footer{background:var(--albastru);color:#dfe5f5;text-align:center;padding:1.2rem;font-size:.9rem}
+footer a{color:var(--galben)}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+.contact{max-width:560px;background:#fff;border-left:8px solid var(--galben);padding:1.25rem 1.5rem;margin:1.5rem 0}
+.contact label{display:block;font-weight:bold;margin:1rem 0 .3rem}
+.contact input,.contact select,.contact textarea{width:100%;padding:.6rem .7rem;font:inherit;border:2px solid #b9b3a3;background:var(--hartie);border-radius:3px}
+.contact input:focus,.contact select:focus,.contact textarea:focus{outline:3px solid var(--galben);border-color:var(--albastru)}
+.contact button{margin-top:1.25rem;padding:.7rem 1.4rem;font:inherit;font-weight:bold;color:#fff;background:var(--albastru);border:0;border-radius:3px;cursor:pointer}
+.contact button:hover{background:var(--rosu)}
+#stare{margin:1rem 0 0;font-weight:bold}
+#stare.ok{color:#256b2a}
+#stare.eroare{color:var(--rosu)}
